@@ -17,9 +17,14 @@ pipeline{
                 sh 'mvn package'
             }
         }
+        stage('Test'){
+            steps{
+                sh 'mvn test'
+            }
+        }
         stage('Deploy'){
             steps{
-                sh 'java -jar /var/lib/jenkins/workspace/PetClinicDeclarativePipeline/target/*.jar'
+                sh 'java -jar /Users/cnm-tpo/.jenkins/workspace/PetClinicDeclarativePipeline/target/*.jar'
             }
         }
     }
